@@ -25,9 +25,9 @@ async fn main() -> Result<(), reqwest::Error> {
         .await?;
 
     if validation["meta"]["valid"].as_bool().unwrap() {
-        println!("License key is valid: code={validation_code} id={license_id}", license_id = validation["data"]["id"], validation_code = validation["meta"]["constant"]);
+        println!("License key is valid: code={validation_code} id={license_id}", license_id = validation["data"]["id"], validation_code = validation["meta"]["code"]);
     } else {
-        println!("License key is invalid: code={validation_code}", validation_code = validation["meta"]["constant"]);
+        println!("License key is invalid: code={validation_code}", validation_code = validation["meta"]["code"]);
     }
 
     Ok(())
